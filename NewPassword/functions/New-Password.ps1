@@ -42,8 +42,8 @@
 
     [cmdletbinding()]
     Param(
-        [Parameter(Mandatory = $True, HelpMessage = "Indicate the word length between 1 and 25.")]
-        [ValidateRange(1, 25)]
+        [Parameter(Mandatory = $True, ValueFromPipeline = $True, HelpMessage = "Indicate the word length between 1 and 25.")]
+        [ValidateRange(1, 30)]
         [int]$Length,
         [switch]
         $UseSpecialChars,
@@ -52,7 +52,9 @@
         [switch]
         $UseUpperCase,
         [switch]
-        $UseNumbers
+        $UseNumbers,
+        [switch]
+        $Logging
     )
 
     begin {
@@ -65,11 +67,13 @@
     }
 
     process {
+        Write-Verbose "Checking switch parameters"
         if ($UseSpecialChars) { $password += $specialCharacters }
         if ($UseSpecialLetters) { $password += $specialLetters }
         if ($UseUpperCase) { $password += $upperCaseletters }
         if ($UseNumbers) { $password += $numbers }
         $password = -join ( $password | Get-Random -count $Length) # Default is just lower case letters
-        Write-PSFMessage -Level Host -Message 'New Password is <c="yellow">{0}</c>' -StringValues $password
+
+        if($Logging) {Write-PSFMessage -Level Host -Message 'New Password is <c="yellow">{0}</c>' -StringValues $password}else {$password}
     }
 }
