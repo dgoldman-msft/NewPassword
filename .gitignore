@@ -1,0 +1,22 @@
+﻿
+# ignore the settings folder and files for VSCode and PSS
+.vscode/*
+*.psproj
+*TempPoint*
+
+# Ignore staging info from Visual Studio
+library/NewPassword/.vs/*
+library/NewPassword/NewPassword/bin/*
+library/NewPassword/NewPassword/obj/*
+
+# ignore PowerShell Studio MetaData
+NewPassword/NewPassword.psproj
+NewPassword/NewPassword.psproj.bak
+NewPassword/NewPassword.psprojs
+NewPassword/NewPassword.psproj
+
+# ignore the TestResults
+TestResults/*
+
+# ignore the publishing Directory
+publish/*
