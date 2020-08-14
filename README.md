@@ -2,7 +2,7 @@
 
 This is a simple password generator
 
-### Getting Started with PSServicePrincipal
+### Getting Started with NewPassword
 1. Place the NewPassword directory in your modules directory
 
 > This will place the NewPassword module into your local PowerShell module path.
