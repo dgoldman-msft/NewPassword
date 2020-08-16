@@ -4,3 +4,4 @@
 
 - New: Added license url to manifest file
 - New: Added project url to manifest file
+- New: Added new file to encrypt password
